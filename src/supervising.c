@@ -60,7 +60,6 @@ void *supervising(void *ref)
     {
         if (check_death(philo) == DEATH || check_needed_meals(philo) == END_MEAL)
         {
-            printf("supervisor ends\n");
             return (NULL);
         }
     }

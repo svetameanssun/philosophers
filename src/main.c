@@ -1,13 +1,12 @@
 #include "../include/philosophers.h"
 
-/*size_t	get_current_time(void)
+void manage_errors(int error)
 {
-	struct timeval	time;
-
-	if (gettimeofday(&time, NULL) == -1)
-		write(2, "gettimeofday() error\n", 22);
-	return (time.tv_sec * 1000 + time.tv_usec / 1000);
-}*/
+    if (error == ERROR_ARG_NUM)
+        printf("Wrong ammount of arguments\n");
+    if (error == ERROR_ARG)
+        printf("Wronng format of arguments\n");
+}
 
 void init_mutexes(t_supper * data)
 {
@@ -26,15 +25,22 @@ void destroy_mutexes(t_supper * data)
 int main(int argc, char **argv)
 {
     t_supper data;
-    if (argc < 5 || argc > 6 || check_args(argv, &data) != 0)
+    t_philo philo_arr[BUFF];
+    pthread_mutex_t forks[BUFF];
+
+    if (argc < 5 || argc > 6)
+    {
+        manage_errors(ERROR_ARG_NUM);
+        return(ERROR_ARG_NUM);
+    }
+    if ( check_args(argv, &data) != 0)
+    {
+        manage_errors(ERROR_ARG);
         return(ERROR_ARG);
-    t_philo philo_arr[data.philos_nbr];// create function, for norminette !
-    pthread_mutex_t forks[data.philos_nbr];// create function, for norminette !
+    }   
     init_forks(forks, &data);
     init_mutexes(&data);
     gather_philosophers(philo_arr, &data);
     destroy_forks(forks, &data);
-    printf("HET\n");
     destroy_mutexes(&data);
-    printf("ДА\n");
 }

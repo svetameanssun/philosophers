@@ -8,8 +8,9 @@
 # include <pthread.h>
 # include <sys/time.h>
 
-#define BUFF 100
-#define ERROR_ARG 1
+#define BUFF 200
+#define ERROR_ARG_NUM 1
+#define ERROR_ARG 6
 #define ERROR_NUMBER 2
 #define ERROR_MALLOC 3
 #define DEATH 4
