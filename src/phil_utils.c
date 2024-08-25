@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phil_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 16:26:45 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/08/24 16:26:46 by svetameanss      ###   ########.fr       */
+/*   Created: 2024/08/25 18:00:57 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/25 18:28:55 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ int	is_number(char *str)
 
 int	ft_atoi(char *str)
 {
-	if (is_number(str) != 0)
-	{
-		return (ERROR_ATOI);
-	}
 	int	i;
 	int	res;
 
 	i = 0;
 	res = 0;
+	if (is_number(str) != 0)
+	{
+		return (ERROR_ATOI);
+	}
 	while (ft_isspace(str[i]) != 0)
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
@@ -56,7 +56,7 @@ int	ft_atoi(char *str)
 int	check_args(char **argv, t_supper *data)
 {
 	data->dead_flg = 0;
-	data->meals_to_eat = 0;
+	data->mls_to_eat = 0;
 	data->philos_full = 0;
 	data->philos_nbr = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
@@ -67,8 +67,8 @@ int	check_args(char **argv, t_supper *data)
 		return (ERROR_ARG);
 	if (argv[5])
 	{
-		data->meals_to_eat = ft_atoi(argv[5]);
-		if (data->meals_to_eat == -1)
+		data->mls_to_eat = ft_atoi(argv[5]);
+		if (data->mls_to_eat == -1)
 			return (ERROR_ARG);
 	}
 	return (0);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   lock_routine.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 16:25:51 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/08/24 16:25:52 by svetameanss      ###   ########.fr       */
+/*   Created: 2024/08/25 18:00:47 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/25 19:50:29 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philosophers.h"
 
-int	somebody_is_dead(t_supper *data)
+int	smbd_dead(t_supper *data)
 {
 	int	dead_flag;
 
@@ -36,24 +36,24 @@ int	action_sequence(t_philo *philo)
 	if (philo->data->philos_nbr == 1)
 	{
 		pthread_mutex_unlock(philo->my_fork);
-		pthread_mutex_unlock(&philo->data->meal_lock);
 		uwait(philo->data->time_to_die, philo);
 		set_dead_flag(philo->data, 1);
-		printf("%zu %d died\n", get_current_time() - philo->start_time, philo->id + 1);
+		printf("%zu %d died\n",
+			get_current_time() - philo->start_time, philo->id + 1);
 		return (uwait(philo->data->time_to_die, philo));
 	}
 	pthread_mutex_lock(philo->other_fork);
 	print_msg("has taken a fork", philo);
 	print_msg("is eating", philo);
-	philo->latest_meal_time = get_current_time();
-	philo->meals_eaten++;
-	ms_sleep(philo->data->time_to_eat);
+	philo->last_meal = get_current_time();
+	philo->mls_eaten++;
+	uwait(philo->data->time_to_eat, philo);
 	pthread_mutex_unlock(philo->my_fork);
 	pthread_mutex_unlock(philo->other_fork);
-	if (philo->meals_eaten == philo->data->meals_to_eat || somebody_is_dead(philo->data))
+	if (philo->mls_eaten == philo->data->mls_to_eat || smbd_dead(philo->data))
 		return (1);
 	print_msg("is sleeping", philo);
-	ms_sleep(philo->data->time_to_sleep);
+	uwait(philo->data->time_to_sleep, philo);
 	print_msg("is thinking", philo);
 	return (0);
 }

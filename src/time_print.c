@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time_print.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 16:27:07 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/08/24 16:27:30 by svetameanss      ###   ########.fr       */
+/*   Created: 2024/08/25 18:01:12 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/25 19:59:48 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	uwait(int time, t_philo *philo)
 	current_time = get_current_time();
 	while (current_time - start < time)
 	{
-		if (somebody_is_dead(philo->data))
+		if (smbd_dead(philo->data))
 		{
 			return (1);
 		}
@@ -39,7 +39,7 @@ void	ms_sleep(size_t msec)
 size_t	get_current_time(void)
 {
 	struct timeval	time;
-	size_t	result_msec;
+	size_t			result_msec;
 
 	gettimeofday(&time, NULL);
 	result_msec = time.tv_sec * 1000 + time.tv_usec / 1000;
@@ -48,7 +48,7 @@ size_t	get_current_time(void)
 
 int	print_msg(char *msg, t_philo *philo)
 {
-	if (!somebody_is_dead(philo->data))
+	if (!smbd_dead(philo->data))
 	{
 		safe_print(msg, philo);
 		return (1);
@@ -63,5 +63,9 @@ void	safe_print(char *msg, t_philo *philo)
 	pthread_mutex_lock(&philo->data->write_lock);
 	time = get_current_time() - philo->start_time;
 	printf("%zu %d %s\n", time, philo->id + 1, msg);
+	if (philo->data->dead_flg == 1)
+	{
+		return ;
+	}
 	pthread_mutex_unlock(&philo->data->write_lock);
 }

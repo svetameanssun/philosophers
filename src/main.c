@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 16:26:28 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/08/24 16:26:29 by svetameanss      ###   ########.fr       */
+/*   Created: 2024/08/25 18:00:53 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/25 20:06:41 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	destroy_mutexes(t_supper *data)
 
 int	main(int argc, char **argv)
 {
-	t_supper	data;
-	t_philo		philo_arr[BUFF];
+	t_supper		data;
+	t_philo			philo_arr[BUFF];
 	pthread_mutex_t	forks[BUFF];
 
 	if (argc < 5 || argc > 6)
@@ -53,6 +53,8 @@ int	main(int argc, char **argv)
 	init_forks(forks, &data);
 	init_mutexes(&data);
 	gather_philosophers(philo_arr, &data);
+	if (philo_arr->data->dead_flg == 1)
+		pthread_mutex_unlock(&philo_arr->data->write_lock);
 	destroy_forks(forks, &data);
 	destroy_mutexes(&data);
 }

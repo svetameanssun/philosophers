@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   supervising.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 16:27:01 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/08/24 16:29:01 by svetameanss      ###   ########.fr       */
+/*   Created: 2024/08/25 18:00:40 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/25 20:15:13 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_needed_meals(t_philo *philo)
 	{
 		if (philo[i].created == 1)
 		{
-			if (philo[i].meals_eaten == philo->data->meals_to_eat)
+			if (philo[i].mls_eaten == philo->data->mls_to_eat)
 			{
 				full_philos++;
 			}
@@ -47,9 +47,10 @@ int	check_death(t_philo *philo)
 	{
 		if (philo[i].created == 1)
 		{
-			if ((get_current_time() - philo[i].latest_meal_time)
+			if ((get_current_time() - philo[i].last_meal)
 				> (size_t)philo->data->time_to_die)
 			{
+				usleep(100);
 				safe_print("died", philo);
 				set_dead_flag(philo->data, 1);
 				return (DEATH);

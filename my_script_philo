@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+echo "Test 1 800 200 200"
+./philo 1 800 200 200
+echo ""
+
+echo "Test 5 800 200 200"
+./philo 5 800 200 200
+echo ""
+
+for i in {1..10}
+do 
+	./philo 2 400 201 200
+	echo ""
+done
+
+
+
+

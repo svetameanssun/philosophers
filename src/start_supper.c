@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_supper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 16:26:54 by svetameanss       #+#    #+#             */
-/*   Updated: 2024/08/24 16:26:55 by svetameanss      ###   ########.fr       */
+/*   Created: 2024/08/25 18:01:05 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/25 20:06:28 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,12 @@ void	assign_forks(t_supper*data, t_philo *philo)
 
 void	init_philosopher(t_philo *philo, t_supper *data, int id)
 {
-	philo->im_full = 0;
-	philo->meals_eaten = 0;
+	philo->mls_eaten = 0;
 	philo->id = id;
 	philo->data = data;
 	philo->fork_nbr = data->philos_nbr;
 	pthread_create(&(philo->my_thread), NULL, &routine, philo);
-	philo->latest_meal_time = get_current_time();
+	philo->last_meal = get_current_time();
 	philo->start_time = get_current_time();
 	assign_forks(data, philo);
 	philo->created = 1;
@@ -70,7 +69,7 @@ void	init_philosopher(t_philo *philo, t_supper *data, int id)
 void	gather_philosophers(t_philo *philo_arr, t_supper *data)
 {
 	pthread_t	thread;
-	int	i;
+	int			i;
 
 	i = 0;
 	pthread_create(&thread, NULL, &supervising, philo_arr);
