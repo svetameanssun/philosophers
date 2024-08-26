@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:00:47 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/25 19:50:29 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:43:53 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	set_dead_flag(t_supper *data, int dead_flag)
 
 int	action_sequence(t_philo *philo)
 {
-	print_msg("has taken a fork", philo);
 	pthread_mutex_lock(philo->my_fork);
+	print_msg("has taken a fork", philo);
 	if (philo->data->philos_nbr == 1)
 	{
 		pthread_mutex_unlock(philo->my_fork);
@@ -45,10 +45,12 @@ int	action_sequence(t_philo *philo)
 	pthread_mutex_lock(philo->other_fork);
 	print_msg("has taken a fork", philo);
 	print_msg("is eating", philo);
-	philo->last_meal = get_current_time();
-	philo->mls_eaten++;
-	uwait(philo->data->time_to_eat, philo);
 	pthread_mutex_unlock(philo->my_fork);
+	philo->last_meal = get_current_time();
+	pthread_mutex_lock(&philo->data->meal_lock);
+	philo->mls_eaten++;
+	pthread_mutex_unlock(&philo->data->meal_lock);
+	uwait(philo->data->time_to_eat, philo);
 	pthread_mutex_unlock(philo->other_fork);
 	if (philo->mls_eaten == philo->data->mls_to_eat || smbd_dead(philo->data))
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:00:57 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/25 18:28:55 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:20:43 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	check_args(char **argv, t_supper *data)
 {
 	data->dead_flg = 0;
 	data->mls_to_eat = 0;
-	data->philos_full = 0;
 	data->philos_nbr = ft_atoi(argv[1]);
 	data->time_to_die = ft_atoi(argv[2]);
 	data->time_to_eat = ft_atoi(argv[3]);

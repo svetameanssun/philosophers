@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:40:20 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/25 18:40:57 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:20:12 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ time_to_sleep - The time a philosopher will spend sleeping.
 typedef struct the_last_supper
 {
 	int				philos_nbr;
-	int				philos_full;
 	int				dead_flg;
 	int				mls_to_eat;
 	int				time_to_die;
@@ -67,7 +66,7 @@ typedef struct philosopher
 	int				id;
 	int				created;
 	int				mls_eaten;
-	int				fork_nbr;
+	//int				fork_nbr;
 	size_t			start_time;
 	size_t			last_meal;
 	t_supper		*data;

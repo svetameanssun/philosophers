@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:00:40 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/25 20:15:13 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:43:03 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ int	check_needed_meals(t_philo *philo)
 	{
 		if (philo[i].created == 1)
 		{
+			pthread_mutex_lock(&philo->data->meal_lock);
 			if (philo[i].mls_eaten == philo->data->mls_to_eat)
 			{
 				full_philos++;
 			}
+			pthread_mutex_unlock(&philo->data->meal_lock);
 			i++;
 		}
 	}
 	if (full_philos == philo->data->philos_nbr)
 	{
-		philo->data->philos_full = full_philos;
 		return (END_MEAL);
 	}
 	return (0);
@@ -74,6 +75,7 @@ void	*supervising(void *ref)
 		{
 			return (NULL);
 		}
+		ms_sleep(10);
 	}
 	return (philo);
 }
