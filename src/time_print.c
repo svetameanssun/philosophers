@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time_print.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 18:01:12 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/26 15:18:31 by svetameanss      ###   ########.fr       */
+/*   Created: 2024/08/26 20:55:38 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/26 20:55:39 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

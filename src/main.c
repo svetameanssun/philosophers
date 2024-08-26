@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 18:00:53 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/26 15:18:20 by svetameanss      ###   ########.fr       */
+/*   Created: 2024/08/26 20:55:24 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/26 20:55:25 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

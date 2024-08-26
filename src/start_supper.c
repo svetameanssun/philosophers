@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_supper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
+/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 18:01:05 by stitovsk          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/08/26 20:34:54 by stitovsk         ###   ########.fr       */
-=======
-/*   Updated: 2024/08/26 15:18:27 by svetameanss      ###   ########.fr       */
->>>>>>> refs/remotes/origin/master
+/*   Created: 2024/08/26 20:54:26 by stitovsk          #+#    #+#             */
+/*   Updated: 2024/08/26 20:54:30 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
