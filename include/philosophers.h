@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:40:20 by stitovsk          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/08/26 20:20:12 by stitovsk         ###   ########.fr       */
+=======
+/*   Updated: 2024/08/26 15:18:17 by svetameanss      ###   ########.fr       */
+>>>>>>> refs/remotes/origin/master
 /*                                                                            */
 /* ************************************************************************** */
 

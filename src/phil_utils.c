@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   phil_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:00:57 by stitovsk          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/08/26 20:20:43 by stitovsk         ###   ########.fr       */
+=======
+/*   Updated: 2024/08/26 15:18:23 by svetameanss      ###   ########.fr       */
+>>>>>>> refs/remotes/origin/master
 /*                                                                            */
 /* ************************************************************************** */
 

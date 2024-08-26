@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   start_supper.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:01:05 by stitovsk          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2024/08/26 20:34:54 by stitovsk         ###   ########.fr       */
+=======
+/*   Updated: 2024/08/26 15:18:27 by svetameanss      ###   ########.fr       */
+>>>>>>> refs/remotes/origin/master
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +27,7 @@ void	init_forks(pthread_mutex_t mutexes[], t_supper *data)
 		printf("%p\n", &mutexes[i]);
 		i++;
 	}
+	printf("%p\n", &mutexes[0]);
 	data->forks_list = mutexes;
 }
 
