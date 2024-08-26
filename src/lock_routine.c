@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lock_routine.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svetameanssun <svetameanssun@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 18:00:47 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/25 19:50:29 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:18:25 by svetameanss      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
