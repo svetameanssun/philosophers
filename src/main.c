@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 20:55:24 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/26 20:55:25 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:51:55 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	init_mutexes(t_supper *data)
 	pthread_mutex_init(&data->dead_lock, NULL);
 	pthread_mutex_init(&data->meal_lock, NULL);
 	pthread_mutex_init(&data->write_lock, NULL);
+	pthread_mutex_init(&data->aux_lock, NULL);
 }
 
 void	destroy_mutexes(t_supper *data)
@@ -32,6 +33,7 @@ void	destroy_mutexes(t_supper *data)
 	pthread_mutex_destroy(&data->dead_lock);
 	pthread_mutex_destroy(&data->meal_lock);
 	pthread_mutex_destroy(&data->write_lock);
+	pthread_mutex_destroy(&data->aux_lock);
 }
 
 int	main(int argc, char **argv)
@@ -53,8 +55,8 @@ int	main(int argc, char **argv)
 	init_forks(forks, &data);
 	init_mutexes(&data);
 	gather_philosophers(philo_arr, &data);
-	if (philo_arr->data->dead_flg == 1)
-		pthread_mutex_unlock(&philo_arr->data->write_lock);
+	/*if (philo_arr->data->dead_flg == 1)
+		pthread_mutex_unlock(&philo_arr->data->write_lock);*/
 	destroy_forks(forks, &data);
 	destroy_mutexes(&data);
 }

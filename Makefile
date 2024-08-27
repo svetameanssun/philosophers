@@ -6,12 +6,12 @@
 #    By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/25 19:09:12 by stitovsk          #+#    #+#              #
-#    Updated: 2024/08/25 19:21:58 by stitovsk         ###   ########.fr        #
+#    Updated: 2024/08/27 17:06:26 by stitovsk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 NAME = philo
 SRC_DIR = ./src/
 BIN_DIR = ./bin/
@@ -22,7 +22,8 @@ SRC_FILES = main.c \
 			phil_utils.c \
 			start_supper.c \
 			supervising.c \
-			time_print.c
+			time_print.c \
+			setter_getter.c
 
 OBJ = $(SRC_FILES:%.c=$(OBJ_DIR)%.o)
 

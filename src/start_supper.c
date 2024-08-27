@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 20:54:26 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/26 20:54:30 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:35:48 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ void	init_forks(pthread_mutex_t mutexes[], t_supper *data)
 	while (i < data->philos_nbr)
 	{
 		pthread_mutex_init(&mutexes[i], NULL);
-		printf("%p\n", &mutexes[i]);
 		i++;
 	}
-	printf("%p\n", &mutexes[0]);
 	data->forks_list = mutexes;
 }
 
@@ -57,8 +55,8 @@ void	assign_forks(t_supper*data, t_philo *philo)
 
 void	init_philosopher(t_philo *philo, t_supper *data, int id)
 {
-	philo->mls_eaten = 0;
 	philo->id = id;
+	philo->mls_eaten = 0;
 	philo->data = data;
 	philo->last_meal = get_current_time();
 	philo->start_time = get_current_time();
@@ -71,17 +69,17 @@ void	gather_philosophers(t_philo *philo_arr, t_supper *data)
 	int			i;
 
 	i = 0;
-	pthread_create(&thread, NULL, &supervising, philo_arr);
 	while (i < data->philos_nbr)
 	{
 		init_philosopher(&philo_arr[i], data, i);
 		i++;
 	}
+	pthread_create(&thread, NULL, &supervising, philo_arr);
 	i = 0;
 	while (i < data->philos_nbr)
 	{
 		pthread_create(&philo_arr[i].my_thread, NULL, &routine, &philo_arr[i]);
-		philo_arr[i].created = 1;
+		set_created_flag(&philo_arr[i], data);
 		i++;
 	}
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 20:56:21 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/26 20:56:22 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:48:05 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct the_last_supper
 	pthread_mutex_t	dead_lock;
 	pthread_mutex_t	write_lock;
 	pthread_mutex_t	meal_lock;
+	pthread_mutex_t	aux_lock;
 	pthread_mutex_t	*forks_list;
 }			t_supper;
 
@@ -96,5 +97,11 @@ void	ms_sleep(size_t msec);
 int		uwait(int time, t_philo *philo);
 void	set_dead_flag(t_supper *data, int dead_flag);
 void	safe_print(char *msg, t_philo *philo);
+int		is_created(t_philo *philo);
+void	set_created_flag(t_philo *philo, t_supper *data);
+void	add_meal(t_philo *philo);
+int		is_full(t_philo *philo);
+void	set_time(t_philo *philo);
+int		check_time(t_philo *philo);
 
 #endif

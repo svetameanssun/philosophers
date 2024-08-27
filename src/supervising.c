@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 20:55:33 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/26 20:55:34 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:49:25 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ int	check_needed_meals(t_philo *philo)
 	full_philos = 0;
 	while (i < philo->data->philos_nbr)
 	{
-		if (philo[i].created == 1)
+		if (is_created(&philo[i]) == 1)
 		{
-			pthread_mutex_lock(&philo->data->meal_lock);
-			if (philo[i].mls_eaten == philo->data->mls_to_eat)
+			if (is_full(&philo[i]))
 			{
 				full_philos++;
 			}
-			pthread_mutex_unlock(&philo->data->meal_lock);
 			i++;
 		}
 	}
@@ -46,10 +44,9 @@ int	check_death(t_philo *philo)
 	i = 0;
 	while (i < philo->data->philos_nbr)
 	{
-		if (philo[i].created == 1)
+		if (is_created(&philo[i]) == 1)
 		{
-			if ((get_current_time() - philo[i].last_meal)
-				> (size_t)philo->data->time_to_die)
+			if (check_time(&philo[i]))
 			{
 				usleep(100);
 				safe_print("died", philo);
