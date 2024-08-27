@@ -6,7 +6,7 @@
 /*   By: stitovsk <stitovsk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 20:54:26 by stitovsk          #+#    #+#             */
-/*   Updated: 2024/08/27 17:35:48 by stitovsk         ###   ########.fr       */
+/*   Updated: 2024/08/27 18:22:22 by stitovsk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void	assign_forks(t_supper*data, t_philo *philo)
 	}
 	else if (data->philos_nbr > 1)
 	{
-		if (philo->id == 0)
-			philo->other_fork = &data->forks_list[philo->data->philos_nbr - 1];
+		if (philo->id == philo->id -1)
+			philo->other_fork = &data->forks_list[0];
 		else
-			philo->other_fork = &data->forks_list[philo->id - 1];
+			philo->other_fork = &data->forks_list[philo->id + 1];
 	}
 }
 
